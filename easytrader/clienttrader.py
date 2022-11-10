@@ -124,7 +124,7 @@ class ClientTrader(IClientTrader):
 
     @property
     def balance(self):
-        self._switch_left_menus(["查询[F4]", "资金股票"])
+        self._switch_left_menus(["查詢[F4]", "資金股票"])
 
         return self._get_balance_from_statics()
 
@@ -143,26 +143,26 @@ class ClientTrader(IClientTrader):
 
     @property
     def position(self):
-        self._switch_left_menus(["查询[F4]", "资金股票"])
+        self._switch_left_menus(["查詢[F4]", "資金股票"])
 
         return self._get_grid_data(self._config.COMMON_GRID_CONTROL_ID)
 
     @property
     def today_entrusts(self):
-        self._switch_left_menus(["查询[F4]", "当日委托"])
+        self._switch_left_menus(["查詢[F4]", "當日委托"])
 
         return self._get_grid_data(self._config.COMMON_GRID_CONTROL_ID)
 
     @property
     def today_trades(self):
-        self._switch_left_menus(["查询[F4]", "当日成交"])
+        self._switch_left_menus(["查詢[F4]", "當日成交"])
 
         return self._get_grid_data(self._config.COMMON_GRID_CONTROL_ID)
 
     @property
     def cancel_entrusts(self):
         self.refresh()
-        self._switch_left_menus(["撤单[F3]"])
+        self._switch_left_menus(["撤單[F3]"])
 
         return self._get_grid_data(self._config.COMMON_GRID_CONTROL_ID)
 
@@ -177,7 +177,7 @@ class ClientTrader(IClientTrader):
 
     def cancel_all_entrusts(self):
         self.refresh()
-        self._switch_left_menus(["撤单[F3]"])
+        self._switch_left_menus(["撤單[F3]"])
 
         # 点击全部撤销控件
         self._app.top_window().child_window(
@@ -212,13 +212,13 @@ class ClientTrader(IClientTrader):
 
     @perf_clock
     def buy(self, security, price, amount, **kwargs):
-        self._switch_left_menus(["买入[F1]"])
+        self._switch_left_menus(["買入[F1]"])
 
         return self.trade(security, price, amount)
 
     @perf_clock
     def sell(self, security, price, amount, **kwargs):
-        self._switch_left_menus(["卖出[F2]"])
+        self._switch_left_menus(["賣出[F2]"])
 
         return self.trade(security, price, amount)
 
@@ -235,7 +235,7 @@ class ClientTrader(IClientTrader):
 
         :return: {'entrust_no': '委托单号'}
         """
-        self._switch_left_menus(["市价委托", "买入"])
+        self._switch_left_menus(["市價委托", "買入"])
 
         return self.market_trade(security, amount, ttype, limit_price=limit_price)
 
@@ -251,7 +251,7 @@ class ClientTrader(IClientTrader):
         :param limit_price: 科创板 限价
         :return: {'entrust_no': '委托单号'}
         """
-        self._switch_left_menus(["市价委托", "卖出"])
+        self._switch_left_menus(["市價委托", "賣出"])
 
         return self.market_trade(security, amount, ttype, limit_price=limit_price)
 

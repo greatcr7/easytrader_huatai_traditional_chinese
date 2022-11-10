@@ -35,10 +35,12 @@ class JoinQuantFollower(BaseFollower):
             users,
             strategies,
             track_interval=1,
-            trade_cmd_expire_seconds=120,
+            trade_cmd_expire_seconds=600,
             cmd_cache=True,
             entrust_prop="limit",
             send_interval=0,
+            buy_multiplier=1, 
+            sell_multiplier=1
     ):
         """跟踪joinquant对应的模拟交易，支持多用户多策略
         :param users: 支持easytrader的用户对象，支持使用 [] 指定多个用户
@@ -71,7 +73,7 @@ class JoinQuantFollower(BaseFollower):
             strategy_worker = Thread(
                 target=self.track_strategy_worker,
                 args=[strategy_id, strategy_name],
-                kwargs={"interval": track_interval},
+                kwargs={"interval": track_interval, "buy_multiplier": buy_multiplier, "sell_multiplier": sell_multiplier},
             )
             strategy_worker.start()
             workers.append(strategy_worker)

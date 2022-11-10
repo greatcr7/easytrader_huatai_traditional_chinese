@@ -21,7 +21,7 @@ def create(broker):
 
 class CommonConfig:
     DEFAULT_EXE_PATH: str = ""
-    TITLE = "网上股票交易系统5.0"
+    TITLE = "网上股票交易系统6.13"
 
     # 交易所类型。 深圳A股、上海A股
     TRADE_STOCK_EXCHANGE_CONTROL_ID = 1003
@@ -43,10 +43,10 @@ class CommonConfig:
     COMMON_GRID_FIRST_ROW_HEIGHT = 30
     COMMON_GRID_ROW_HEIGHT = 16
 
-    BALANCE_MENU_PATH = ["查询[F4]", "资金股票"]
-    POSITION_MENU_PATH = ["查询[F4]", "资金股票"]
-    TODAY_ENTRUSTS_MENU_PATH = ["查询[F4]", "当日委托"]
-    TODAY_TRADES_MENU_PATH = ["查询[F4]", "当日成交"]
+    BALANCE_MENU_PATH = ["查詢[F4]", "資金股票"]
+    POSITION_MENU_PATH = ["查詢[F4]", "資金股票"]
+    TODAY_ENTRUSTS_MENU_PATH = ["查詢[F4]", "當日委托"]
+    TODAY_TRADES_MENU_PATH = ["查詢[F4]", "當日成交"]
 
     BALANCE_CONTROL_ID_GROUP = {
         "资金余额": 1012,
@@ -102,7 +102,7 @@ class YH(CommonConfig):
 
 
 class HT(CommonConfig):
-    DEFAULT_EXE_PATH = r"C:\htzqzyb2\xiadan.exe"
+    DEFAULT_EXE_PATH = r"C:\htzqzyb3\xiadan.exe"
 
     BALANCE_CONTROL_ID_GROUP = {
         "资金余额": 1012,

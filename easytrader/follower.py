@@ -172,7 +172,7 @@ class BaseFollower(metaclass=abc.ABCMeta):
         """
         pass
 
-    def track_strategy_worker(self, strategy, name, interval=10, **kwargs):
+    def track_strategy_worker(self, strategy, name, interval=10, buy_multiplier=1, sell_multiplier=1, **kwargs):
         """跟踪下单worker
         :param strategy: 策略id
         :param name: 策略名字
@@ -188,6 +188,10 @@ class BaseFollower(metaclass=abc.ABCMeta):
                 time.sleep(3)
                 continue
             for transaction in transactions:
+                if transaction["action"] == 'sell':
+                    transaction["amount"] = transaction["amount"] * sell_multiplier
+                elif transaction["action"] == 'buy':
+                    transaction["amount"] = transaction["amount"] * buy_multiplier
                 trade_cmd = {
                     "strategy": strategy,
                     "strategy_name": name,
@@ -307,7 +311,7 @@ class BaseFollower(metaclass=abc.ABCMeta):
 
             actual_price = self._calculate_price_by_slippage(
                 trade_cmd["action"], trade_cmd["price"]
-            )
+            )                
             args = {
                 "security": trade_cmd["stock_code"],
                 "price": actual_price,

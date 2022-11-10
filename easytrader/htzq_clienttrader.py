@@ -57,5 +57,5 @@ class HTZQClientTrader(clienttrader.BaseLoginClientTrader):
                 path=self._run_exe_path(exe_path), timeout=10
             )
         self._close_prompt_windows()
-        self._main = self._app.window(title="网上股票交易系统5.0")
+        self._main = self._app.window(title="網上股票交易系統5.0")
 
